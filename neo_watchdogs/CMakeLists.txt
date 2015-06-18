@@ -26,11 +26,7 @@ find_package(catkin REQUIRED COMPONENTS
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES neo_watchdogs
-  CATKIN_DEPENDS 
-  neo_relayboard 
-  roscpp
-  move_base_msgs
-  neo_msgs
+  CATKIN_DEPENDS neo_relayboard roscpp move_base_msgs neo_msgs
 #  DEPENDS system_lib
 )
 
@@ -41,7 +37,6 @@ catkin_package(
 include_directories(
   ${catkin_INCLUDE_DIRS}
 )
-
 
 add_executable(watch_power src/watch_power.cpp)
 add_executable(watch_scanner_stop src/watch_scanner_stop.cpp)
@@ -59,6 +54,13 @@ target_link_libraries(watch_temp
 #############
 ## Install ##
 #############
+
+## Mark executables and/or libraries for installation
+install(TARGETS watch_power watch_scanner_stop watch_temp
+    ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+    LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+    RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
 
 
 #############

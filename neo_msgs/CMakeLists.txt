@@ -9,30 +9,30 @@ find_package(catkin REQUIRED COMPONENTS
   message_generation
 )
 
- ##Generate messages in the 'msg' folder
- add_message_files(
-   FILES
-    	EmergencyStopState.msg
-	GyroBoard.msg
-	IOAnalogIn.msg
-	IOOut.msg
-	IRSensors.msg
-	Keypad.msg
-	LCDOutput.msg
-	RadarBoard.msg
-	USBoard.msg
-	PowerState.msg
-	PowerBoardState.msg
- )
+##Generate messages in the 'msg' folder
+add_message_files(
+  FILES
+  EmergencyStopState.msg
+  GyroBoard.msg
+  IOAnalogIn.msg
+  IOOut.msg
+  IRSensors.msg
+  Keypad.msg
+  LCDOutput.msg
+  RadarBoard.msg
+  USBoard.msg
+  PowerState.msg
+  PowerBoardState.msg
+)
 
 
- generate_messages(
-   DEPENDENCIES
-   std_msgs
+generate_messages(
+  DEPENDENCIES
+  std_msgs
  )
 
 catkin_package(
-  CATKIN_DEPENDS message_runtime
+  CATKIN_DEPENDS std_msgs message_runtime
 )
 
 

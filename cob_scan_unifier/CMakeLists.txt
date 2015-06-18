@@ -9,10 +9,9 @@ endif()
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
-  laser_geometry
   roscpp
-  rospy
   sensor_msgs
+  laser_geometry
   tf
 )
 
@@ -27,16 +26,11 @@ find_package(catkin REQUIRED COMPONENTS
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
-  INCLUDE_DIRS 
-    include
-#  LIBRARIES cob_scan_unifier
   CATKIN_DEPENDS 
-    laser_geometry 
-    roscpp 
-    rospy 
-    sensor_msgs 
+    roscpp
+    laser_geometry
+    sensor_msgs
     tf
-#  DEPENDS system_lib
 )
 
 ###########
@@ -47,16 +41,12 @@ catkin_package(
 ## Your package locations should be listed before other locations
 # include_directories(include)
 include_directories(
-  include/cob_scan_unifier
+  include
   ${catkin_INCLUDE_DIRS}
 )
 
 ## Declare a cpp executable
 add_executable(scan_unifier_node src/scan_unifier_node.cpp)
-
-## Add cmake target dependencies of the executable/library
-## as an example, message headers may need to be generated before nodes
-add_dependencies(scan_unifier_node cob_scan_unifier_gencpp)
 
 ## Specify libraries to link a library or executable target against
 target_link_libraries(scan_unifier_node
@@ -83,5 +73,4 @@ install(TARGETS scan_unifier_node
   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
-
 

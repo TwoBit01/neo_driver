@@ -30,7 +30,7 @@ find_package(catkin REQUIRED COMPONENTS
 ###################################
 
 catkin_package(
-    CATKIN_DEPENDS roscpp rostest std_msgs tf nav_msgs sensor_msgs
+    CATKIN_DEPENDS roscpp rostest std_msgs tf nav_msgs sensor_msgs trajectory_msgs
     INCLUDE_DIRS common/include
     LIBRARIES ${PROJECT_NAME}
 )
@@ -63,4 +63,11 @@ install(TARGETS ${PROJECT_NAME} neo_platformctrl_diff_node
     ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
     LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
     RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
+
+## Mark cpp header files for installation
+install(DIRECTORY common/include/
+ DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
+ FILES_MATCHING PATTERN "*.h"
+ PATTERN ".svn" EXCLUDE
 )
